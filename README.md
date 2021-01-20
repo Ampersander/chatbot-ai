@@ -19,7 +19,7 @@
 - In a terminal, navigate to `chatbot`
 
     ```bash
-    cd chatbot
+    cd chatbot-ai
     ```
 
 - Install modules
@@ -28,11 +28,11 @@
     npm install
     ```
 - Config your .env
-
+```
    - MicrosoftAppId=MicrosftIdOptional
    - MicrosoftAppPassword=MicrosftPasswordOptional
    - APITokenOW=YourAPITokenOpenWeather
-
+```
 - Start the bot
 
     ```bash
