@@ -1,0 +1,43 @@
+{
+    "name": "core-bot",
+    "version": "1.0.0",
+    "description": "A bot that demonstrates core AI capabilities",
+    "author": "Microsoft",
+    "license": "MIT",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./index.js",
+        "watch": "nodemon ./index.js",
+        "lint": "eslint .",
+        "test": "nyc mocha tests/**/*.test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/BotBuilder-Samples.git"
+    },
+    "dependencies": {
+        "@microsoft/recognizers-text-data-types-timex-expression": "1.1.4",
+        "botbuilder": "~4.11.0",
+        "botbuilder-ai": "~4.11.0",
+        "botbuilder-dialogs": "~4.11.0",
+        "botbuilder-testing": "~4.11.0",
+        "dotenv": "^8.2.0",
+        "http-proxy-agent": "^4.0.1",
+        "isomorphic-fetch": "^3.0.0",
+        "querystring": "^0.2.0",
+        "request": "^2.88.2",
+        "restify": "~8.5.1",
+        "url": "^0.11.0"
+    },
+    "devDependencies": {
+        "eslint": "^7.0.0",
+        "eslint-config-standard": "^14.1.1",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "mocha": "^7.1.2",
+        "nodemon": "~2.0.4",
+        "nyc": "^15.0.1"
+    }
+}
