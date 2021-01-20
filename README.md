@@ -38,7 +38,9 @@
     ```bash
     npm start
     ```
+## Sample
 
+![Screenshot](chatbot.PNG)
 
 ## Testing the bot using Bot Framework Emulator
 
