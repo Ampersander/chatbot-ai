@@ -6,6 +6,7 @@
     # determine node version
     node --version
     ```
+- Optional Microsoft account 
 
 ## To try this sample
 
@@ -26,12 +27,18 @@
     ```bash
     npm install
     ```
+- Config your .env
+
+    MicrosoftAppId=MicrosftIdOptional
+    MicrosoftAppPassword=MicrosftPasswordOptional
+    APITokenOW=YourAPITokenOpenWeather
 
 - Start the bot
 
     ```bash
     npm start
     ```
+
 
 ## Testing the bot using Bot Framework Emulator
 
