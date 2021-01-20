@@ -29,9 +29,9 @@
     ```
 - Config your .env
 ```
-   - MicrosoftAppId=MicrosftIdOptional
-   - MicrosoftAppPassword=MicrosftPasswordOptional
-   - APITokenOW=YourAPITokenOpenWeather
+    MicrosoftAppId=MicrosoftIdOptional
+    MicrosoftAppPassword=MicrosoftPasswordOptional
+    APITokenOW=YourAPITokenOpenWeather
 ```
 - Start the bot
 
