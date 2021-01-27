@@ -4,11 +4,17 @@ const path = require('path');
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
 const APITokenOW = process.env.APITokenOW;
+const bddHost = process.env.host;
+const bddUser = process.env.user;
+const bddPassword = process.env.password;
+const bddDatabase = process.env.database;
 const { TimexProperty } = require('@microsoft/recognizers-text-data-types-timex-expression');
 const { InputHints, MessageFactory } = require('botbuilder');
 const { TextPrompt, WaterfallDialog } = require('botbuilder-dialogs');
 const { CancelAndHelpDialog } = require('./cancelAndHelpDialog');
 let { OpenWeatherMap } = require ('../ModulesAPI/OpenWeatherMap') ;
+let { bddChatBot } = require ('../mysql/db_connection') ;
+let bddchat = new bddChatBot(bddHost,bddUser,bddPassword,bddDatabase);
 let ow = new OpenWeatherMap (APITokenOW, 'metric') ;
 require ('isomorphic-fetch') ;
 const TEXT_PROMPT = 'textPrompt';
@@ -51,8 +57,6 @@ class MeteoDialog extends CancelAndHelpDialog {
         var ville =  meteoDetails.localisation;
         let result = await ow.getWeather (ville);
         let goodCity = await this.showWarningForUnsupportedCities(stepContext,ville, result);
-        console.log('*******');
-        console.log(goodCity);
         if(goodCity == true){
             var previsions = {
                 temperature : Math.round(result.main.temp),
@@ -64,6 +68,7 @@ class MeteoDialog extends CancelAndHelpDialog {
             '_ Température : ' + previsions.temperature + '°C\n\n' + 
             '_ Humidité : ' + previsions.humidity + '%\n\n' +
             '_ Vent : ' + previsions.wind + 'km/h';
+            bddchat.insertLastWeather(ville,message);
             const msg = MessageFactory.text(message, message, InputHints.ExpectingInput);
             // Offer a YES/NO prompt.
             return await stepContext.context.sendActivity(msg);

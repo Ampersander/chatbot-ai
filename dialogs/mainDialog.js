@@ -1,5 +1,11 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
+const bddHost = process.env.host;
+const bddUser = process.env.user;
+const bddPassword = process.env.password;
+const bddDatabase = process.env.database;
+let { bddChatBot } = require ('../mysql/db_connection') ;
+let bddchat = new bddChatBot(bddHost,bddUser,bddPassword,bddDatabase);
 const { TimexProperty } = require('@microsoft/recognizers-text-data-types-timex-expression');
 const { MessageFactory, InputHints } = require('botbuilder');
 const { LuisRecognizer } = require('botbuilder-ai');
@@ -78,6 +84,8 @@ class MainDialog extends ComponentDialog {
 
         // Call LUIS and gather any potential details. (Note the TurnContext has the response to the prompt)
         const luisResult = await this.luisRecognizer.executeLuisQuery(stepContext.context);
+        console.log('////////////////////////////////////////');
+        console.log(luisResult);
         switch (LuisRecognizer.topIntent(luisResult)) {
         case 'GetWeather': {
             // Extract the values for the composite entities from the LUIS result.
@@ -89,6 +97,18 @@ class MainDialog extends ComponentDialog {
             // Run the meteoDialog passing in whatever details we have from the LUIS call, it will fill out the remainder.
             
             return await stepContext.beginDialog('meteoDialog',details);
+        }
+        case 'GetWeatherBDD': {
+            // Extract the values for the composite entities from the LUIS result.
+            let lastWeather = await bddchat.getLastWeather();
+            /*
+            bddchat.getLastWeather().then(value => {
+                 stepContext.prompt('TextPrompt', { prompt: value[0].reponseAPI });
+                 //return stepContext.next();
+            });
+           // console.log(test);*/
+           await stepContext.prompt('TextPrompt', { prompt: lastWeather[0].reponseAPI });
+            return await stepContext.next();
         }
 
         default: {

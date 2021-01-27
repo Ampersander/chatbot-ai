@@ -24,6 +24,7 @@
         "dotenv": "^8.2.0",
         "http-proxy-agent": "^4.0.1",
         "isomorphic-fetch": "^3.0.0",
+        "mysql": "^2.18.1",
         "querystring": "^0.2.0",
         "request": "^2.88.2",
         "restify": "~8.5.1",

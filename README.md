@@ -25,6 +25,16 @@ This bot uses [LUIS](https://www.luis.ai), an AI based cognitive service, to imp
     # determine node version
     node --version
     ```
+### Create a database 
+
+Once you created the database, update `.env` with your `host`, `user`, `database` and `password`.
+
+```text
+host="Your Host"
+user="Your database Username"
+password="Your database Password"
+database="Your database Name"
+```
 
 ### Create a LUIS Application to enable language understanding
 
