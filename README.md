@@ -34,6 +34,8 @@ host="Your Host"
 user="Your database Username"
 password="Your database Password"
 database="Your database Name"
+root_password=" Your root pwd"
+port="Your port"
 ```
 
 ### Create a LUIS Application to enable language understanding
