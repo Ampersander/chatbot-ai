@@ -110,6 +110,18 @@ LuisAPIHostName = "Your LUIS App region here (i.e: westus.api.cognitive.microsof
 
 To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](https://aka.ms/azuredeployment) for a complete list of deployment instructions.
 
+## Sample
+
+![Screenshot](chatbot.PNG)
+
+## Example command
+
+- Quelle est la météo à Angers?
+- météo (in second time give a name of a city)
+- dernière météo 
+- quit (when you choose a city)
+- help (when you choose a city)
+
 ## Further reading
 
 - [Bot Framework Documentation](https://docs.botframework.com)
