@@ -53,7 +53,7 @@ LuisAPIHostName = "Your LUIS App region here (i.e: westus.api.cognitive.microsof
 - Clone the repository
 
     ```bash
-    git clone https://github.com/microsoft/botbuilder-samples.git
+    git clone https://github.com/Ampersander/chatbot-ai
     ```
 
 - In a terminal, navigate to `chatbot-ai`
@@ -78,11 +78,15 @@ LuisAPIHostName = "Your LUIS App region here (i.e: westus.api.cognitive.microsof
 
     The prerequisites outlined above contain the steps necessary to provision a language understanding model on www.luis.ai.  Refer to _Create a LUIS Application to enable language understanding_ above for directions to setup and configure LUIS.
 
-- Run the sample
+- Build the docker image
 
     ```bash
-    npm start
+    docker-compose build
     ```
+    ```bash
+    docker-compose up d
+    ```
+
 
 ## Testing the bot using Bot Framework Emulator
 
@@ -95,6 +99,10 @@ LuisAPIHostName = "Your LUIS App region here (i.e: westus.api.cognitive.microsof
 - Launch Bot Framework Emulator
 - File -> Open Bot
 - Enter a Bot URL of `http://localhost:3978/api/messages`
+- Download ngrok
+- Config the path to ngrok in the Emulator Settings
+- Activate the option Bypass ngrok for local addresses and Run ngrok when the Emulator start up
+-localhost override = localhost
 
 ## Deploy the bot to Azure
 
