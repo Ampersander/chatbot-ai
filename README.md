@@ -112,7 +112,7 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 
 ## Sample
 
-![Screenshot](chatbot.PNG)
+![Screenshot](Chatbot.PNG)
 
 ## Example command
 
