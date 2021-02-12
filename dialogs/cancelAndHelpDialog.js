@@ -26,7 +26,7 @@ class CancelAndHelpDialog extends ComponentDialog {
             case '?': {
                 const helpMessageText = "Un peu d'aide ici\n"+
                 "Vous pouvez demander la météo comme ceci:\n"+
-                "Quelle est la météo à Paris?\n";
+                "Quelle est la météo à Paris? après avoir écrit quit ou vous pouvez aussi donner le nom d'une ville\n";
                 await innerDc.context.sendActivity(helpMessageText, helpMessageText, InputHints.ExpectingInput);
                 return { status: DialogTurnStatus.waiting };
             }
